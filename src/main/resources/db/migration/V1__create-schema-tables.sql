@@ -68,7 +68,7 @@ create table questionnaire.answer (
                                       id uuid not null,
                                       answer varchar(255),
                                       correct boolean,
-                                      deleted boolean,
+                                      deleted boolean default false,
                                       question_id uuid,
                                       primary key (id)
 );
@@ -77,7 +77,7 @@ create table questionnaire.answer (
 create table questionnaire.chapter (
                                        id uuid not null,
                                        description varchar(255),
-                                       deleted boolean,
+                                       deleted boolean default false,
                                        name varchar(255),
                                        test_id uuid,
                                        primary key (id)
@@ -85,7 +85,7 @@ create table questionnaire.chapter (
 
 create table questionnaire.question (
                                         id uuid not null,
-                                        deleted boolean,
+                                        deleted boolean default false,
                                         question varchar(255),
                                         question_type_id uuid,
                                         primary key (id)
@@ -119,7 +119,7 @@ create table questionnaire.user (
                                     id uuid not null,
                                     email varchar(255),
                                     first_name varchar(255),
-                                    deleted boolean,
+                                    deleted boolean default false,
                                     last_name varchar(255),
                                     password varchar(255),
                                     username varchar(255),
@@ -158,9 +158,9 @@ create table test (
                       created timestamp,
                       description varchar(255),
                       duration int2,
-                      deleted boolean,
+                      deleted boolean default false,
                       name varchar(255),
-                      pass_score int2,
+                      pass_score int2 default 1,
                       author_id uuid,
                       primary key (id)
 );

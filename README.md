@@ -1,6 +1,6 @@
 # Questionnaire-service
 
-- rest-api интерфейс для проведения опросов и тестирования
+- REST-API интерфейс для проведения опросов и тестирования
 
 [![Swagger Validator](src/main/resources/images/swagger-valid-brightgreen.svg)](http://localhost:8189/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config)
 

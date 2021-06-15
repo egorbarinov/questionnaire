@@ -107,7 +107,7 @@ public class UserTestServiceImpl implements UserTestService {
       System.out.println(userTestQuestions);
       return testQuestions.stream()
           .filter(q -> userTestQuestions.stream()
-              .noneMatch(utq -> q.getId().equals(utq.getQuestion().getId())))
+                  .noneMatch(utq -> q.getId().equals(utq.getQuestion().getId())))
           .peek(qEntity -> { // затираем ответ для вопроса со свободным ответом
             if (qEntity.getQuestionType().getName().equals(FREE.getText())) {
               qEntity.setAnswers(null);

@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.egorbarinov.questionnaire.config.jwt.JwtProvider;
-import ru.egorbarinov.questionnaire.message.request.LoginForm;
+import ru.egorbarinov.questionnaire.message.request.JwtRequest;
 import ru.egorbarinov.questionnaire.message.response.JwtResponse;
 
 import javax.validation.Valid;
@@ -22,10 +22,10 @@ public class AuthController {
     private final JwtProvider jwtProvider;
 
     @PostMapping("/signin")
-    public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
+    public ResponseEntity<JwtResponse> authenticateUser(@RequestBody JwtRequest authRequest) {
 
         var authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

@@ -146,7 +146,6 @@ public class UserTestServiceImpl implements UserTestService {
 
       UserTestQuestion saveUserTestQuestion = userTestQuestionDao.save(userTestQuestion);
       userTest.addUserTestQuestion(saveUserTestQuestion);
-//      System.out.println(saveUserTestQuestion.toString());
       userTestDao.save(userTest);
 
       return getNextQuestion(userTestQuestionDto.getUserTestId());
